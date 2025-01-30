@@ -64,7 +64,10 @@ export https_proxy=""
 ```bash
 python client.py
 ```
+### 🔹 Accèder à Flask
 
+http://localhost:5000/apidocs/
+http://localhost:5001/apidocs/
 
 ### 🔹 Faire une requête REST pour rechercher un train
 ```bash
