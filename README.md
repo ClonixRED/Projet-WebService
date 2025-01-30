@@ -32,6 +32,8 @@ pip install flask spyne flasgger lxml requests zeep
 ## 📌 2. Démarrer le serveur
 Dans le terminal :
 ```bash
+lsof -i :8000
+kill -9 pid
 python webservice.py
 ```
 ✅ **Si tout fonctionne, les logs doivent afficher :**
