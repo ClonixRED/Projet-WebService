@@ -104,7 +104,7 @@ curl -X POST -H "Content-Type: text/xml" --data '
 sqlite3 trains.db
 SELECT * FROM trains WHERE id=1;
 ```
-✅ **Si tout fonctionne, `available_seats` doit avoir diminué. **
+✅ **Si tout fonctionne, `available_seats` doit avoir diminué.**
 
 ---
 
@@ -113,7 +113,7 @@ SELECT * FROM trains WHERE id=1;
 ```bash
 curl -G --data-urlencode "departure=Paris" --data-urlencode "arrival=Lyon" --data-urlencode "class=Première Classe" "http://localhost:5000/search_trains"
 ```
-📌 **Note le nombre de places (`available_seats`).**
+📌 **Prendre le nombre de places (`available_seats`).**
 
 ### 🔹 2️⃣ Réserver un billet avec SOAP (voir commande plus haut).
 
@@ -121,7 +121,7 @@ curl -G --data-urlencode "departure=Paris" --data-urlencode "arrival=Lyon" --dat
 ```bash
 curl -G --data-urlencode "departure=Paris" --data-urlencode "arrival=Lyon" --data-urlencode "class=Première Classe" "http://localhost:5000/search_trains"
 ```
-✅ **Si REST affiche le nombre de places mis à jour, tout fonctionne ! 🎉**
+✅ **Si REST affiche normalement le nombre de places mis à jour**
 
 ---
 
