@@ -45,7 +45,7 @@ python webservice.py
 ---
 
 ## 📌 3. Tester l'API REST (`search_trains`)
-### 🔹 Désactiver le proxy (si nécessaire)
+### 🔹 Désactiver le proxy 
 Dans le **nouveau terminal** :
 ```bash
 export http_proxy=""
