@@ -24,7 +24,7 @@ source envwebservice/bin/activate
 ### 🔹 3️⃣ Installer les dépendances
 Avec l'environnement activé, dans le terminal:
 ```bash
-pip install flask spyne flasgger lxml requests
+pip install flask spyne flasgger lxml requests zeep
 ```
 
 ---
