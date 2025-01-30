@@ -139,6 +139,8 @@ curl -G --data-urlencode "departure=Paris" --data-urlencode "arrival=Lyon" --dat
 curl -G --data-urlencode "departure=Paris" --data-urlencode "arrival=Lyon" --data-urlencode "class=Première Classe" "http://localhost:5000/search_trains"
 ```
 ✅ **Si REST affiche normalement le nombre de places mis à jour**
+http://localhost:5000/apidocs/
+http://localhost:5001/apidocs/
 
 ---
 
