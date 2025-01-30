@@ -73,7 +73,7 @@ Ouvre un navigateur et accède à :
 ```
 http://localhost:8000/?wsdl
 ```
-✅ **Si tout fonctionne, tu verras un fichier XML avec `<wsdl:definitions>`**
+✅ **Si tout fonctionne il y aura un fichier XML avec `<wsdl:definitions>`**
 
 ### 🔹 Réserver un billet avec `cURL`
 ```bash
@@ -104,7 +104,7 @@ curl -X POST -H "Content-Type: text/xml" --data '
 sqlite3 trains.db
 SELECT * FROM trains WHERE id=1;
 ```
-✅ **Si tout fonctionne, `available_seats` doit avoir diminué !**
+✅ **Si tout fonctionne, `available_seats` doit avoir diminué. **
 
 ---
 
