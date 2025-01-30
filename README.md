@@ -36,6 +36,11 @@ lsof -i :8000
 kill -9 pid
 python webservice.py
 ```
+
+Dans un autre : 
+```bash
+python train_filtering.py
+```
 ✅ **Si tout fonctionne, les logs doivent afficher :**
 ```
  * Running on http://127.0.0.1:5000/ (REST API)
@@ -53,6 +58,13 @@ Dans le **nouveau terminal** :
 export http_proxy=""
 export https_proxy=""
 ```
+
+
+### 🔹 Utiliser le Client 
+```bash
+python client.py
+```
+
 
 ### 🔹 Faire une requête REST pour rechercher un train
 ```bash
@@ -77,7 +89,7 @@ http://localhost:8000/?wsdl
 ```
 ✅ **Si tout fonctionne il y aura un fichier XML avec `<wsdl:definitions>`**
 
-### 🔹 Réserver un billet avec `cURL`
+### 🔹 Réserver un billet avec `cURL` (Optionnel)
 ```bash
 curl -X POST -H "Content-Type: text/xml" --data '
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="TrainBookingService">
@@ -110,7 +122,7 @@ SELECT * FROM trains WHERE id=1;
 
 ---
 
-## 📌 5. Tester l'interaction entre REST et SOAP
+## 📌 5. Tester l'interaction entre REST et SOAP (Optionnel)
 ### 🔹 1️⃣ Vérifier le nombre de places **avant** la réservation
 ```bash
 curl -G --data-urlencode "departure=Paris" --data-urlencode "arrival=Lyon" --data-urlencode "class=Première Classe" "http://localhost:5000/search_trains"
@@ -128,14 +140,6 @@ curl -G --data-urlencode "departure=Paris" --data-urlencode "arrival=Lyon" --dat
 ---
 
 
-## 🎯 **Conclusion : Projet Fonctionnel !**
-✅ **Recherche de trains (REST) fonctionne**
-✅ **Réservation de billets (SOAP) fonctionne**
-✅ **Mise à jour en base de données vérifiée**
-✅ **Interaction REST/SOAP validée**
-
-
----
 
 
 
