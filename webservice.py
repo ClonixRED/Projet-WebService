@@ -5,7 +5,8 @@ from spyne.server.wsgi import WsgiApplication
 import sqlite3
 import threading
 from wsgiref.simple_server import make_server
-from flasgger import Swagger
+from flasgger import Swagger, swag_from
+
 import requests
 
 # Application Flask pour l'API REST
@@ -64,6 +65,28 @@ init_db()  # Appelle l'initialisation de la base
 
 
 @app.route('/all_trains', methods=['GET'])
+@swag_from({
+    "responses": {
+        200: {
+            "description": "Liste de tous les trains disponibles",
+            "schema": {
+                "type": "array",
+                "items": {
+                    "properties": {
+                        "id": {"type": "integer"},
+                        "departure": {"type": "string"},
+                        "arrival": {"type": "string"},
+                        "date": {"type": "string"},
+                        "time": {"type": "string"},
+                        "available_seats": {"type": "integer"},
+                        "class": {"type": "string"}
+                    }
+                }
+            }
+        },
+        404: {"description": "Aucun train disponible"}
+    }
+})
 def all_trains():
     """Renvoie la liste de tous les trains disponibles."""
     conn = sqlite3.connect('trains.db')
@@ -80,6 +103,33 @@ def all_trains():
 
 # Point de terminaison REST pour la recherche de trains (Critère 1)
 @app.route('/search_trains', methods=['GET'])
+@swag_from({
+    "parameters": [
+        {"name": "departure", "in": "query", "type": "string", "required": True, "description": "Ville de départ"},
+        {"name": "arrival", "in": "query", "type": "string", "required": True, "description": "Ville d'arrivée"},
+        {"name": "class", "in": "query", "type": "string", "required": True, "description": "Classe du voyage"}
+    ],
+    "responses": {
+        200: {
+            "description": "Liste des trains disponibles",
+            "schema": {
+                "type": "array",
+                "items": {
+                    "properties": {
+                        "id": {"type": "integer"},
+                        "departure": {"type": "string"},
+                        "arrival": {"type": "string"},
+                        "date": {"type": "string"},
+                        "time": {"type": "string"},
+                        "available_seats": {"type": "integer"},
+                        "class": {"type": "string"}
+                    }
+                }
+            }
+        },
+        404: {"description": "Aucun train disponible"}
+    }
+})
 def search_trains():
     """Recherche de trains disponibles"""
     logging.debug(f"Requête reçue : {request.url}")
